@@ -1,0 +1,11 @@
+# Versoes testadas com Python 3.14. Instale com:
+#   python -m venv .venv
+#   .venv\Scripts\python.exe -m pip install -r requirements.txt
+requests==2.33.1
+pandas==3.0.2
+openpyxl==3.1.5
+tqdm==4.67.3
+# pipeline_etl (warehouse MySQL 8). cryptography e obrigatoria: o plugin de
+# autenticacao padrao do MySQL 8 (caching_sha2_password) depende dela.
+PyMySQL==1.2.3
+cryptography==50.0.1

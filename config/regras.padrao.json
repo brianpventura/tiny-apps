@@ -1,0 +1,46 @@
+{
+  "_leia": "Perfil de regras GENERICO. Nao edite este arquivo para uma empresa: crie <TINY_APPS_CONFIG ou data>/regras.json so com as chaves que mudam (o resto vem daqui). Listas substituem, nao somam. Secoes opcionais no regras.json da empresa: 'tenants': {<tenant_id>: {...}} para diferencas por empresa e 'relatorios': {<nome>: {...}} para um relatorio que precise de outro recorte.",
+
+  "vendas": {
+    "_situacoes": "Codigos de situacao do pedido que contam como venda. 0 Aberta, 1 Faturada, 2 Cancelada, 3 Aprovada, 4 Preparando Envio, 5 Enviada, 6 Entregue, 7 Pronto Envio, 8 Dados Incompletos, 9 Nao Entregue.",
+    "situacoes_validas": [1, 3, 4, 5, 6, 7],
+
+    "_naturezas": "Naturezas de operacao de venda. Os nomes sao criados em cada conta do Tiny. modo 'prefixo': conta o nome (normalizado: minusculas, sem acento) que comeca por um dos 'valores'; modo 'lista': so os nomes exatos de 'valores'; modo 'todas': nao filtra. 'incluir' e 'excluir' ajustam por nome exato em qualquer modo.",
+    "naturezas": {
+      "modo": "prefixo",
+      "valores": ["venda"],
+      "incluir": [],
+      "excluir": []
+    }
+  },
+
+  "canais": {
+    "_leia": "Classificacao do pedido em grupo de canal, pelo nome da integracao (ecommerce.nome) e pelo vendedor. As regras de 'integracao' sao testadas em ordem; a primeira cujo termo aparece no nome normalizado vence.",
+    "grupos": ["Site", "Marketplace", "Vendas internas", "Feiras/Eventos", "Outros"],
+    "vendedor_pessoa": {
+      "grupo": "Vendas internas",
+      "prevalece_sobre_integracao": true
+    },
+    "vendedores_nao_pessoa": ["ecommerce", "e-commerce", "e commerce", "site", "loja",
+                              "marketplace", "mercado livre", "shopee", "amazon"],
+    "integracao": [
+      {"grupo": "Feiras/Eventos", "contem": ["feira", "evento"]},
+      {"grupo": "Marketplace", "contem": [
+        "mercado livre", "mercadolivre", "meli", "shopee", "magalu", "magazine luiza",
+        "netshoes", "amazon", "americanas", "b2w", "submarino", "shoptime", "via varejo",
+        "casas bahia", "extra", "ponto frio", "olist", "tray", "anymarket", "hub",
+        "shein", "tiktok", "beleza na web", "belezanaweb", "epoca", "sephora",
+        "madeiramadeira", "leroy", "carrefour", "renner", "riachuelo", "aliexpress",
+        "temu", "kabum", "zoom", "buscape", "privalia", "dafiti", "centauro", "petz",
+        "cobasi"]},
+      {"grupo": "Site", "contem": [
+        "shopify", "site", "loja virtual", "loja propria", "e-commerce proprio",
+        "nuvemshop", "nuvem shop", "vtex", "woocommerce", "woo", "wordpress", "magento",
+        "opencart", "prestashop", "wake", "linx", "bagy", "yampi", "cartpanda", "wbuy",
+        "irroba", "dooca", "loja integrada", "lojaintegrada"]}
+    ],
+    "integracao_nao_reconhecida": "Outros",
+    "sem_integracao_vendedor_nao_pessoa": "Site",
+    "sem_integracao": "Outros"
+  }
+}

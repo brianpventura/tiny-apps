@@ -1,0 +1,18 @@
+[project]
+name = "tiny-apps"
+version = "0.1.0"
+description = "Ferramentas de automacao e extracao de dados sobre a API v3 do Tiny ERP, com warehouse MySQL de pedidos."
+readme = "README.md"
+requires-python = ">=3.14"
+# Dependencias fixadas em requirements.txt. O projeto ainda nao e um pacote
+# instalavel: os scripts rodam direto (ver README).
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B"]
+# E402: os apps ajustam sys.path antes de importar core/ (idioma do repo).
+ignore = ["E402"]

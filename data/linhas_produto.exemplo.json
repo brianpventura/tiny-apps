@@ -1,0 +1,12 @@
+{
+  "_leia": "Copie para data/linhas_produto.json. Cada linha de produto e reconhecida pelo prefixo de categoria_caminho do cadastro (ex.: 'Linha X' casa 'Linha X -> Shampoo'). skus_extras entram na linha mesmo com outra categoria; skus_excluidos saem dela mesmo com a categoria certa. 'notas' vao para a aba Notas do xlsx.",
+  "linhas": [
+    {"chave": "linha_a", "rotulo": "Linha A", "categoria": "Linha A",
+     "skus_extras": ["SKU-FORA-DA-CATEGORIA"], "skus_excluidos": []},
+    {"chave": "linha_b", "rotulo": "Linha B", "categoria": "Linha B",
+     "skus_extras": [], "skus_excluidos": ["SKU-ACESSORIO"]}
+  ],
+  "notas": [
+    "Explique aqui as excecoes da sua base (SKUs extras, canais ausentes em algum periodo...)."
+  ]
+}

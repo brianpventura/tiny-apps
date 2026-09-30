@@ -1,0 +1,18 @@
+{
+  "empresa_a": {
+    "nome": "Empresa A",
+    "client_id": "SEU_CLIENT_ID",
+    "client_secret": "SEU_CLIENT_SECRET",
+    "redirect_uri": "http://localhost:8765/callback",
+    "razao_social": "EMPRESA A COMERCIO LTDA",
+    "clientes_excluidos": ["EMPRESA B COMERCIO LTDA"]
+  },
+  "empresa_b": {
+    "nome": "Empresa B",
+    "client_id": "SEU_CLIENT_ID",
+    "client_secret": "SEU_CLIENT_SECRET",
+    "redirect_uri": "http://localhost:8765/callback",
+    "razao_social": "EMPRESA B COMERCIO LTDA",
+    "clientes_excluidos": ["EMPRESA A COMERCIO LTDA"]
+  }
+}

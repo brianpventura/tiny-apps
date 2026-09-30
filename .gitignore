@@ -1,0 +1,35 @@
+# Ambiente
+.venv/
+__pycache__/
+*.pyc
+
+# Configuração, tokens e caches (segredos e dados pessoais).
+# Só os modelos *.exemplo.json são versionados.
+data/*
+!data/*.exemplo.json
+
+# Saídas geradas
+reports/
+# pasta de saida antiga dentro dos apps (NAO confundir com src/apps/relatorios/, que e codigo)
+src/apps/*/relatorios/
+
+# Planilhas, CSVs e PDFs são dado da empresa, nunca código.
+# Exceções (modelos vazios) ficam listadas explicitamente abaixo.
+*.xlsx
+*.xls
+*.csv
+*.pdf
+!src/apps/estoque/modelo_balanco_estoque.xlsx
+
+# config/ so leva os padroes genericos. A configuracao de uma empresa
+# (regras.json etc.) vai em data/ ou no repositorio privado dela.
+config/*
+!config/*.padrao.json
+
+# Documentação interna e material privado
+CLAUDE.md
+BACKLOG.md
+_privado/
+
+# Configuração local de editor/agente
+.claude/settings.local.json

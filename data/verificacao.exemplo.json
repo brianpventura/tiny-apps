@@ -1,0 +1,19 @@
+{
+  "_leia": "Copie para data/verificacao.json e troque pelos numeros da SUA base. Regressao: janela curta ja carregada, com numeros medidos por outro caminho (ex.: relatorio do proprio Tiny). Ajuste: delta explicado pedido a pedido (pedidos que mudaram de situacao depois da medicao). aritmetica_aceita: [tenant, id_pedido, motivo] de pedidos cujo cabecalho da API nao fecha com os itens, conferidos no payload.",
+  "regressao": {
+    "inicio": "2026-01-05",
+    "fim": "2026-01-08",
+    "situacoes": [1, 3, 4, 5, 6, 7],
+    "esperado": {
+      "empresa_a": {"pedidos": 100, "linhas": 250, "unidades": 400, "skus": 60, "faturamento": 12345.67}
+    },
+    "ajuste": {
+      "empresa_a": {"pedidos": 1, "linhas": 2, "unidades": 2, "skus": 0, "faturamento": 99.90,
+                    "motivo": "1 pedido cancelado depois da medicao",
+                    "ids": [111111111]}
+    }
+  },
+  "aritmetica_aceita": [
+    ["empresa_a", 222222222, "cabecalho da API diverge dos itens (conferido no payload)"]
+  ]
+}

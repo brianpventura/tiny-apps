@@ -1,0 +1,41 @@
+{
+  "_leia": "Copie para regras.json (em data/ ou na pasta de TINY_APPS_CONFIG) e deixe SO o que difere de config/regras.padrao.json. Listas substituem a do padrao, nao somam. Depois de mudar, a fase 4 do pipeline para e mostra a diferenca: rode com --aplicar-regras para reprocessar o warehouse (offline).",
+
+  "vendas": {
+    "_exemplo": "Esta empresa tambem conta pedido Aberto (0) e Nao Entregue (9) como venda.",
+    "situacoes_validas": [0, 1, 3, 4, 5, 6, 7, 9],
+    "naturezas": {
+      "modo": "prefixo",
+      "valores": ["venda"],
+      "incluir": ["Remessa para venda fora do estabelecimento"],
+      "excluir": ["Venda de ativo imobilizado"]
+    }
+  },
+
+  "canais": {
+    "_exemplo": "Grupo proprio para uma integracao, testado antes dos grupos padrao (a lista 'integracao' inteira e substituida).",
+    "vendedores_nao_pessoa": ["ecommerce", "e-commerce", "site", "loja", "marketplace", "televendas"],
+    "integracao": [
+      {"grupo": "Atacado B2B", "contem": ["b2b", "atacado"]},
+      {"grupo": "Feiras/Eventos", "contem": ["feira", "evento"]},
+      {"grupo": "Marketplace", "contem": ["mercado livre", "shopee", "amazon", "magalu"]},
+      {"grupo": "Site", "contem": ["shopify", "nuvemshop", "vtex", "site"]}
+    ]
+  },
+
+  "tenants": {
+    "empresa_b": {
+      "_exemplo": "Na empresa B as naturezas de venda tem outros nomes.",
+      "vendas": {"naturezas": {"modo": "lista", "valores": ["Venda Consumidor", "Venda Revenda"]}}
+    }
+  },
+
+  "relatorios": {
+    "recorrencia": {
+      "_exemplo": "Recorte do relatorio_recorrencia_produtos.py: so venda confirmada e sem a empresa coligada.",
+      "vendas": {"situacoes_validas": [1, 3, 4, 5, 6, 7]},
+      "excluir_nomes": ["EMPRESA COLIGADA LTDA"],
+      "excluir_cnpjs": ["12.345.678/0001-00"]
+    }
+  }
+}

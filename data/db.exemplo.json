@@ -1,0 +1,7 @@
+{
+  "host": "127.0.0.1",
+  "porta": 3306,
+  "usuario": "etl",
+  "senha": "TROQUE-AQUI",
+  "banco": "tiny_dw"
+}
